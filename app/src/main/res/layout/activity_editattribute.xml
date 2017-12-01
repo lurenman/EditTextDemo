@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit基本属性"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+ <!--       有时候也要对intent的默认焦点进行设置，不至于在intent跳转的时候默认焦点（光标）在EditText上，导致进入intent就打开输入法，影响界面美观。
+        默认焦点的顺序是：从上倒下
+        从左到右第一个可以输入的控件作为焦点
+        可以使用：
+        button.setFocusable(true);
+        button.requestFocus();
+        button.setFocusableInTouchMode(true);
+        也可以：
+        在EditText前面放置一个看不到的LinearLayout，让他率先获取焦点：-->
+<!--        <LinearLayout
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="0px"
+            android:layout_height="0px"/>-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="password:"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+        <!--    android:password="true" 这个方法过时-->
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="start"
+            android:inputType="textPassword"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="phoneNumber:"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+        <!--    android:phoneNumber="true" 这个方法过时
+         android:inputType="phone"和 android:inputType="number"键盘上字符有点区别
+           android:maxLength="6"最大字数限制
+        -->
+        <EditText
+            android:id="@+id/et_phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="start"
+            android:inputType="phone"
+            android:maxLength="6"
+            android:singleLine="true"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="typeface:"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+        <!--    android:typeface="monospace"
+        设置字型。字形有：normal, sans, serif,monospace
+        -->
+        <EditText
+            android:id="@+id/et_typeface"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="start"
+            android:textColor="@color/colorPrimary"
+            android:typeface="serif" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="editable:"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+        <!--    EditText是否可编辑
+                Android:editable // 是否可编辑
+                android:editable="false" 过时
+        -->
+        <EditText
+            android:id="@+id/et_editable"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="start"
+            android:textColor="@color/colorPrimary"
+            android:editable="false"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="numeric:"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+        <!--   android:numeric//只接受数字
+               android:numeric来控制输入的数字类型，一共有三种分别为integer（正整数）、
+               signed（带符号整数，有正负）和decimal(浮点数)decimal这个不能为负值。
+               android:numeric过时
+        -->
+        <EditText
+            android:id="@+id/et_numeric"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="start"
+            android:textColor="@color/colorPrimary"
+            android:inputType="numberDecimal"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="imeOptinos:"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+        <!--  android:imeOptions="flagNoExtractUi" //使软键盘不全屏显示，只占用一部分屏幕 同时,
+        这个属性还能控件软键盘右下角按键的显示内容,默认情况下为回车键 android:imeOptions="actionNone"
+        //输入框右侧不带任何提示 android:imeOptions="actionGo"   //右下角按键内容为'开始' android:imeOptions="actionSearch"
+        //右下角按键为放大镜图片，搜索 android:imeOptions="actionSend"   //右下角按键内容为'发送' android:imeOptions="actionNext"  //右下角按键内容为'下一步'
+        android:imeOptions="actionDone"默认
+        -->
+        <EditText
+            android:id="@+id/et_imeOptinos"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="start"
+            android:textColor="@color/colorPrimary"
+            android:singleLine="true"
+            android:imeOptions="actionSearch"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="digits:"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+        <!--
+           android:digits="0123456789xyzXYZ" 这个代表只允许输入0123456789xyzXYZ这个包含的字符
+        -->
+        <EditText
+            android:id="@+id/et_digits"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="start"
+            android:textColor="@color/colorPrimary"
+            android:singleLine="true"
+            android:imeOptions="actionSearch"
+            android:digits="0123456789xyzXYZ"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cursorVisible:"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+        <!--
+           android:cursorVisible="false" 隐藏光标
+           android:background="#00000000"//不要文本框背景
+        -->
+        <EditText
+            android:id="@+id/et_cursorVisible"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="start"
+            android:textColor="@color/colorPrimary"
+            android:singleLine="true"
+            android:cursorVisible="false"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="textStyle:"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+        <!--
+        android:textStyle="bold" 字体，bold, italic
+           -->
+        <EditText
+            android:id="@+id/et_textStyle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="start"
+            android:textColor="@color/colorPrimary"
+            android:singleLine="true"
+            android:inputType="textEmailAddress"
+            android:textStyle="italic"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="capitalize:"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+        <!--
+     设置英文字母大写类型。设置如下值：sentences仅第一个字母大写；words每一个单词首字母大小，
+     用空格区分单词；characters每一个英文字母都大写。在模拟器上用PC键盘直接输入可以出效果，但是用软键盘无效果
+     没发现有什么效果
+           -->
+        <EditText
+            android:id="@+id/et_capitalize"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="start"
+            android:textColor="@color/colorPrimary"
+            android:singleLine="true"
+            android:capitalize="words"
+            />
+    </LinearLayout>
+
+</LinearLayout>
